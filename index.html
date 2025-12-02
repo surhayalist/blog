@@ -5,20 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog Post Viewer</title>
 
-  <!-- TÜM DOSYALAR BURADA - ELLE DÜZENLEME GEREK YOK! -->
-  <script>
-    // Bu script, sayfayı açtığında otomatik olarak tüm .html dosyalarını tarar
-    // GitHub Pages'te ve yerel bilgisayarda çalışır
-    const ALL_FILES = [
-      "90652965130.html","90838364235.html","91408956515.html","91686660830.html",
-      "93768927235.html","93769403895.html","93777362855.html","93899094290.html",
-      "95679935900.html","96370767680.html","96370937765.html","96371902020.html",
-      "97605769990.html","98313709655.html","98397274675.html","98907884670.html",
-      "98988176250.html","99127510665.html","99131704550.html","99322145315.html",
-      "99756476550.html"
-    ];
-  </script>
-
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -59,22 +45,74 @@
   </div>
 
   <script>
+    // TÜM DOSYALAR (EN ALTTAN EN ÜSTE SIRALI)
+    const ALL_FILES = [
+      "100099408355.html","100153072670.html","100202312530.html","100618257375.html","100906105920.html",
+      "100940363435.html","103215551545.html","103385315130.html","103385348480.html","103387292200.html",
+      "103558207040.html","103577067850.html","103577160445.html","104258869420.html","104272377130.html",
+      "104514597995.html","105693078760.html","105931325820.html","106362743890.html","107413465375.html",
+      "108846211950.html","108933990630.html","109251413035.html","109572875265.html","109644452325.html",
+      "109674389475.html","109701663525.html","109706471710.html","109783183095.html","109783280460.html",
+      "110753703295.html","112546232770.html","113185821505.html","113266613920.html","115713230950.html",
+      "118354673145.html","122609651105.html","123037057850.html","128537007125.html","129245437050.html",
+      "129777278470.html","129978965475.html","129980462420.html","130407956460.html","130556010075.html",
+      "130758490450.html","130758949210.html","131022034380.html","131080190335.html","133359556735.html",
+      "133786629280.html","134288013530.html","134659289675.html","136425901765.html","136427464010.html",
+      "137751633250.html","137752238635.html","139935439090.html","147056565120.html","148888320300.html",
+      "149360040290.html","151620027980.html","151620431885.html","151620864920.html","152241898100.html",
+      "152251930445.html","152267947510.html","152273021915.html","152357970075.html","152823995165.html",
+      "153176258095.html","153247037915.html","153828104.html","153989719815.html","154043156745.html",
+      "154089945605.html","155631955860.html","155693195025.html","156031125845.html","157495874975.html",
+      "157497032550.html","158551851555.html","158637131310.html","158644920355.html","158860885625.html",
+      "158860917620.html","158860944685.html","158959516390.html","159610793550.html","159671829030.html",
+      "160873179950.html","162195784950.html","16584149104.html","16584178134.html","16584193999.html",
+      "16584335662.html","16585454389.html","166114953650.html","16655114087.html","16655379362.html",
+      "16655683460.html","169517980940.html","169520146680.html","170581631945.html","173969590680.html",
+      "175955460615.html","178158583025.html","48138681123.html","48138735460.html","49017880935.html",
+      "49017942298.html","49421930384.html","49421990702.html","49422074371.html","51164389796.html",
+      "51164483746.html","51165914874.html","51166094663.html","51166173608.html","51166509533.html",
+      "51168066781.html","51308581785.html","51309034463.html","51310635994.html","51367977283.html",
+      "51407443044.html","51455472047.html","51479472372.html","51479724091.html","51479795454.html",
+      "51479881683.html","51480213795.html","51480292793.html","51480396354.html","51480831770.html",
+      "51481048711.html","51496089368.html","51545113044.html","51556719332.html","51626199952.html",
+      "51717616573.html","51735740384.html","52204495095.html","52643082115.html","52722015278.html",
+      "52725276372.html","52725381541.html","52786892755.html","52786920493.html","52787492568.html",
+      "52788427146.html","52790485789.html","52804841776.html","52853734073.html","56733487766.html",
+      "56734050014.html","56778515132.html","660851632235495424.html","730744175400714240.html",
+      "740077841581064192.html","740078419112509440.html","790267200134053888.html","790267754843389952.html",
+      "83342217047.html","83443713360.html","83651119809.html","83651154894.html","83979313082.html",
+      "84201556440.html","84299921215.html","84341198390.html","84342496285.html","84448014730.html",
+      "84449486475.html","84592969360.html","84706841785.html","84810934275.html","84810964425.html",
+      "84810986665.html","84811036890.html","84811075345.html","84811123910.html","84811160235.html",
+      "84811179855.html","84811219480.html","84811244950.html","84962236040.html","84967778350.html",
+      "84967826625.html","85305231905.html","85308029385.html","85457028730.html","85753249335.html",
+      "85904783885.html","86039020885.html","86450648900.html","86987991580.html","88070590580.html",
+      "88070768140.html","88604276730.html","89746559535.html","90068949750.html","90117606005.html",
+      "90285501390.html","90397372415.html","90652965130.html","90838364235.html","91408956515.html",
+      "91686660830.html","93768927235.html","93769403895.html","93777362855.html","93899094290.html",
+      "95679935900.html","96370767680.html","96370937765.html","96371902020.html","97605769990.html",
+      "98313709655.html","98397274675.html","98907884670.html","98988176250.html","99127510665.html",
+      "99131704550.html","99322145315.html","99756476550.html"
+    ];
+
     const postList = document.getElementById('postList');
     const viewer = document.getElementById('viewer');
     const loading = document.getElementById('loading');
     const noSelection = document.getElementById('noSelection');
     let currentItem = null;
 
-    // ALL_FILES listesindeki tüm dosyaları kullan
-    const files = ALL_FILES.filter(f => f !== 'index.html').sort((a,b) => b.localeCompare(a));
+    // En alttan en üste sıralı (zaten ALL_FILES öyle)
+    const files = ALL_FILES.slice().reverse(); // en eski en üstte
 
-    files.forEach(file => {
-      const id = file.replace('.html', '');
+    files.forEach((file, index) => {
+      const realId = file.replace('.html', '');
+      const displayId = index + 1; // 1, 2, 3...
+
       const item = document.createElement('div');
       item.className = 'post-item';
       item.dataset.url = file;
       item.innerHTML = `
-        <div class="post-id">#${id}</div>
+        <div class="post-id">#${displayId}</div>
         <div class="post-title">Yükleniyor...</div>
       `;
 
@@ -89,11 +127,14 @@
       };
 
       postList.appendChild(item);
+
+      // Tıklanmadan başlık + tarih çek
+      preloadPost(file, item.querySelector('.post-title'));
     });
 
-    function loadPost(file, titleEl) {
+    function preloadPost(file, titleEl) {
       fetch(file)
-        .then(r => { if (!r.ok) throw new Error('Bulunamadı'); return r.text(); })
+        .then(r => r.ok ? r.text() : Promise.reject('Bulunamadı'))
         .then(html => {
           const doc = new DOMParser().parseFromString(html, 'text/html');
           let title = doc.querySelector('title')?.innerText.trim() ||
@@ -104,20 +145,27 @@
           titleEl.innerHTML = timestamp
             ? `${title}<br><small style="color:#4682b4;">${timestamp}</small>`
             : title;
+        })
+        .catch(() => {
+          titleEl.innerHTML = '<span style="color:#888;">Yüklenemedi</span>';
+        });
+    }
 
+    function loadPost(file, titleEl) {
+      fetch(file)
+        .then(r => { if (!r.ok) throw new Error('Bulunamadı'); return r.text(); })
+        .then(html => {
           const iframeDoc = viewer.contentDocument;
           iframeDoc.open(); iframeDoc.write(html); iframeDoc.close();
-
           loading.style.display = 'none';
           viewer.classList.add('active');
         })
         .catch(err => {
-          titleEl.innerHTML = '<span style="color:red;">Hata</span>';
           loading.innerHTML = `<p style="color:red;">${err.message}</p>`;
         });
     }
 
-    // İlk postu aç
+    // İlk postu otomatik aç
     if (files.length > 0) {
       postList.firstElementChild.click();
     }
